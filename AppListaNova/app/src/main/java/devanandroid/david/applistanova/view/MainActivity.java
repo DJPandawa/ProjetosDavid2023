@@ -2,6 +2,7 @@ package devanandroid.david.applistanova.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +16,11 @@ import devanandroid.david.applistanova.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+
     PessoaController controller;
 
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listaVip";
 
     Pessoa pessoa;
     Pessoa outraPessoa;
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
+
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listaVip = preferences.edit();
 
         controller = new PessoaController();
 
@@ -100,8 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this,"Salvo "+pessoa.toString(),Toast.LENGTH_LONG).show();
 
-                controller.salvar(pessoa);
+                listaVip.putString("primeiroNome",pessoa.getPrimeiroNome());
+                listaVip.putString("sobreNome",pessoa.getSobreNome());
+                listaVip.putString("telefone de contato",pessoa.getTelefoneContato());
+                listaVip.putString("curso desejado",pessoa.getCursoDesejado());
+                listaVip.apply();
 
+                controller.salvar(pessoa);
 
             }
         });
