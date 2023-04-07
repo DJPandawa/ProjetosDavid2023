@@ -14,8 +14,8 @@ public class PessoaController {
     SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "pref_listaVip";
 
-    public PessoaController(MainActivity mainActivity){
-        preferences = mainActivity.getSharedPreferences(NOME_PREFERENCES, 0);
+    public PessoaController(MainActivity activity){
+        preferences = activity.getSharedPreferences(NOME_PREFERENCES, 0);
         listaVip = preferences.edit();
     }
 
