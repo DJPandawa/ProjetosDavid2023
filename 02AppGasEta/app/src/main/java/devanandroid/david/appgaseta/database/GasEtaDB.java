@@ -15,6 +15,7 @@ public class GasEtaDB extends SQLiteOpenHelper {
     SQLiteDatabase db;
 
     // ESTRUTURA -- MUDEI A ESTRUTURA PARA AS QUE CRIEI.
+
     public GasEtaDB(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
