@@ -1,14 +1,17 @@
 package devanandroid.david.appgaseta.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import devanandroid.david.appgaseta.R;
+import devanandroid.david.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
+
+
 
     public static final int TIME_OUT_SPLASH = 3000;
 
@@ -19,13 +22,19 @@ public class SplashActivity extends AppCompatActivity {
 
         comutarTelaSplash();
 
+
+
     }
 
-    private void comutarTelaSplash() {
+
+
+    public void comutarTelaSplash() {
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                GasEtaDB db = new GasEtaDB(SplashActivity.this);
 
                 Intent telaPrincipal = new Intent(SplashActivity.this,GasEtaActivity.class);
                 startActivity(telaPrincipal);

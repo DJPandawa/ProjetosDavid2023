@@ -104,10 +104,6 @@ public class GasEtaActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 // TODO: DESABILITAR O BOTÃO SALVAR
-                // TODO: EditText inputType
-
-
 
                 combustivelGasolina = new Combustivel();
                 combustivelEtanol = new Combustivel();
@@ -123,10 +119,6 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 controller.salvar(combustivelGasolina);
                 controller.salvar(combustivelEtanol);
-
-                int parada = 0;
-
-
             }
         });
 
